@@ -2,14 +2,17 @@ package main;
 
 import admin.AdminMenu;
 import student.StudentMenu;
-
+import data.StudentData;
+import java.util.List;
+import student.Students;
 import java.util.Scanner;
 
 public class main {
     private static void handleChoice(char choice) {
         switch (Character.toLowerCase(choice)) {
             case 'u':
-                StudentMenu.show();
+                List<Students> students = StudentData.loadStudents();
+                StudentMenu.show(students);
                 break;
             case 'a':
                 AdminMenu.show();
